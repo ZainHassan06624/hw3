@@ -1,0 +1,170 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Header and footer.
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\runningheader{CS 113 Discrete Mathematics}{HW 3: Predicate Logic I}{Spring 2020}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+\firstpageheader{}{}{}
+
+% \qformat{{\large\bf \thequestion. \thequestiontitle}\hfill[\totalpoints\ points]}
+\boxedpoints
+\printanswers
+
+\title{Homework 3: Predicate Logic I\\ CS 113 Discrete Mathematics\\ Habib University -- Spring 2020}
+\author{Don't Grade Me}  % replace with your ID, e.g. oy02945
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+
+
+\question
+  \begin{parts}
+  \part[5] There is a third quantifier often used in predicate logic called the \textit{Uniqueness Quantifier}, $\exists!x\; P(x)$ which is read as, ``$P(x)$ is true for one and only one $x$ in the domain'', or ``there is a \textit{unique} $x$ such that $P(x)$''. Give an example of a propositional function $P(x)$ and a corresponding domain, such that $\exists!x\; P(x)$ is a true proposition.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+    
+  \part[5] The uniqueness quantifier can be expressed using the other two quantifiers but is still used on its own as it shortens the logical terms. In particular,
+    \begin{align}
+      \exists!x\;  P(x) \equiv \exists x\; (P(x) \land \forall y\; (P(y) \rightarrow y = x)) \label{eq:uniq}
+    \end{align}
+    Express the proposition on the right above in English and explain why it is equivalent to the left hand side, i.e. to the uniquely quantified propositional function. You may explain in words; a formal proof is not yet required.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+    
+  \part[5] Express $\neg \exists!xP\; (x)$ in a similar way as (\ref{eq:uniq}). Provide an expression in formal notation as well as in English. Also, give an example of a true proposition $\neg\exists!x\; P(x)$ by slightly changing the one you gave in part (a).
+  \end{parts}
+
+  
+\question
+  For each of the statements given below, perform the following.
+  \begin{enumerate}
+  \item Express the statement in formal notation using quantifiers.
+  \item Express the negation of the statement in formal notation such that no negation is left to the quantifier.
+  \item Express the negated statement above as a statement in English.
+  \end{enumerate}
+
+  \begin{parts}
+  \part[5] Some drivers do not obey the speed limit.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] No one can have Pakistani and Indian citizenship.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] No one has climbed every mountain in Pakistan.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] Someone in this class is a CND major.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] If everyone does their homework and goes to the recitations, no one will be badly prepared for the exams.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] Every student in this class has major CS.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] Some students are always inattentive in class. 
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] No student has solved at least one exercise in every section of the book.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \end{parts}
+
+\question
+  Translate the specifications below into English using the given propositional functions.\\
+  \begin{tabular}{l@{ : }l}
+    $F(p)$ & The printer $p$ is out of service\\
+    $B(p)$ & Printer $p$ is busy\\
+    $L(j)$ & Print job $j$ is lost\\
+    $Q(j)$ & Print job $j$ is queued
+  \end{tabular}
+  \begin{parts}
+  \part[5] $\exists p\; (F(p) \land B(p)) \rightarrow \exists j\; L(j)$
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+    
+  \part[5] $(\forall p\; B(p) \land \forall j\; Q(j)) \rightarrow \exists j\; L(j)$
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+  \end{parts}
+
+\question Express each of the system specifications below using suitable predicates, quantifiers, and logical connectives.
+  \begin{parts}
+  \part[5] At least one mail message can be saved if there is a disk with more than 10KB of free space.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] The system mailbox can be accessed by everyone in the group if the file system is locked.
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+  \end{parts}
+
+\question
+  Consider the propositions below for which the domain of all variables is $\mathbb{Z}$. For each proposition,
+  \begin{enumerate}
+  \item Express the proposition in English,
+  \item State its truth value and provide an explanation if it is true or a counterexample if it is false, and
+  \item Specify a domain for which the proposition has the other truth value.
+  \end{enumerate}
+
+  \begin{parts}
+  \part[5] $\forall x \forall y\; (x^2= y^2 \rightarrow x=y)$
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] $\forall x \exists y\; (y^2=x)$
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] $\exists x \forall y\; (x \leq y^2)$
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+
+  \part[5] $\forall x \forall y\ \exists z\; (x-z=y)$
+    \begin{solution}
+      % Write your solution here
+    \end{solution}
+  \end{parts}
+  
+\end{questions}
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
