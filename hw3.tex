@@ -29,7 +29,10 @@
   \begin{parts}
   \part[5] There is a third quantifier often used in predicate logic called the \textit{Uniqueness Quantifier}, $\exists!x\; P(x)$ which is read as, ``$P(x)$ is true for one and only one $x$ in the domain'', or ``there is a \textit{unique} $x$ such that $P(x)$''. Give an example of a propositional function $P(x)$ and a corresponding domain, such that $\exists!x\; P(x)$ is a true proposition.
     \begin{solution}
-      % Write your solution here
+      Consider the domain $\mathbb{Z}$ of integers and the predicate $P(x): x-1 = 0$. Then the following is True:
+      \[
+        \exists! x\in\mathbb{Z}\; (x-1=0)
+      \]
     \end{solution}
     
   \part[5] The uniqueness quantifier can be expressed using the other two quantifiers but is still used on its own as it shortens the logical terms. In particular,
@@ -38,10 +41,38 @@
     \end{align}
     Express the proposition on the right above in English and explain why it is equivalent to the left hand side, i.e. to the uniquely quantified propositional function. You may explain in words; a formal proof is not yet required.
     \begin{solution}
-      % Write your solution here
+      The proposition on the right claims that there is an $x$ in the domain for which $P(x)$ is True. And if $P(x)$ is True for any other value $y$ from the domain, $y$ must be the same as $x$. This is the same as saying that $x$ is the only value in the domain for which $P(x)$ is True. In other words, there is only one $x$ or a unique $x$ in the domain which makes $P(x)$ True.
     \end{solution}
     
   \part[5] Express $\neg \exists!xP\; (x)$ in a similar way as (\ref{eq:uniq}). Provide an expression in formal notation as well as in English. Also, give an example of a true proposition $\neg\exists!x\; P(x)$ by slightly changing the one you gave in part (a).
+    \begin{solution}
+      The solution involves the negation of an implication so let us work that out first.
+      \begin{align}
+        \lnot(p\implies q) & \equiv\lnot(\lnot p \lor q) \nonumber & \\
+        \implies\quad \lnot(p\implies q) & \equiv p \land \lnot q \label{eq:negimply}&\text{(deMorgan's Law and double negation)}
+      \end{align}
+      Now let us negate Equivalence (\ref{eq:uniq}) by moving the negation inside.
+      \begin{align*}
+        \exists!x\;  P(x) & \equiv \exists x\; (P(x) \land \forall y\; (P(y) \rightarrow y = x)) & \\
+        \implies\quad   \lnot \exists!x\;  P(x) & \equiv \lnot \exists x\; (P(x) \land \forall y\; (P(y) \rightarrow y = x)) & (\text{negate both sides})\\
+                          & \equiv  \forall x\; \lnot(P(x) \land \forall y\; (P(y) \rightarrow y = x)) & (\text{de Morgan's law for quantifier})\\
+                          & \equiv  \forall x\; (\lnot P(x) \lor \lnot\forall y\; (P(y) \rightarrow y = x)) & (\text{deMorgan"s law for connectives})\\
+                          & \equiv  \forall x\; (\lnot P(x) \lor \exists y\; \lnot(P(y) \rightarrow y = x)) & (\text{de Morgan's law for quantifier})\\
+                          & \equiv  \forall x\; (\lnot P(x) \lor \exists y\; (P(y) \land y \neq x)) & (\text{Equivalence (\ref{eq:negimply}))}\\
+                          & \equiv  \forall x\; (P(x) \implies \exists y\; (P(y) \land y \neq x)) & (\lnot p \lor q \equiv p \implies q)
+      \end{align*}
+      The expression on the right now says that if there is an $x$ in the domain for which $P(x)$ is True, then there is at least one other distinct value, $y$, from the domain for which $P(y)$ is True.
+      \medskip
+      
+      Changing the domain of the earlier proposition to negative integers, $\mathbb{Z^{-}}$, makes the uniqueness quantifier false, i.e.
+      \[
+        \lnot \exists! x\in\mathbb{Z^{-}}\; (x-1=0)
+      \]
+      Alternately, we can modify $P(x)\colon x-1=0$ to $Q(x)\colon x^2-1=0$ and apply it to the original domain $\mathbb{Z}$ of integers to obtain
+      \[
+        \lnot \exists! x\in\mathbb{Z}\; (x^2-1=0)
+      \]
+    \end{solution}
   \end{parts}
 
   
@@ -56,42 +87,130 @@
   \begin{parts}
   \part[5] Some drivers do not obey the speed limit.
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          Domain & Drivers \\
+          $O(x)$ & $x$ obeys the speed limit.\\
+          Statement & $\exists x\; \lnot O(x)$
+        \end{tabular}
+      \item 
+        \begin{align*}
+          \lnot \exists x\; \lnot O(x) & \equiv \forall x\; \lnot \lnot O(x)&\\
+                                       & \equiv \forall x\; O(x) &\text{(double negation)}\\
+        \end{align*}
+      \item All drivers obey the speed limit.
+      \end{enumerate}
     \end{solution}
 
   \part[5] No one can have Pakistani and Indian citizenship.
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          Domain & All people \\
+          $P(x)$ & $x$ has Pakistani citizenship.\\
+          $I(x)$ & $x$ has Indian citizenship.\\
+          Statement & $\lnot \exists x\; (I(x) \land P(x)) \equiv \forall x\; \lnot (I(x) \land P(x)) \equiv \forall x\; (\lnot I(x) \lor \lnot P(x))$
+        \end{tabular}
+      \item $\lnot \lnot \exists x\; (I(x) \land P(x)) \equiv \exists x\; (I(x) \land P(x))\quad\quad$(double negation)
+      \item Someone has both Pakistani and Indian citizenship.
+      \end{enumerate}
     \end{solution}
 
   \part[5] No one has climbed every mountain in Pakistan.
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          $C(x,y))$ & $x$ has climbed $y$.\\
+          Domain for $x$ & All people\\
+          Domain for $y$ & Mountains in Pakistan\\
+          Statement & $\lnot \exists x \forall y \; C(x,y) \equiv \forall x \exists y \; \lnot C(x,y)$ 
+        \end{tabular}
+      \item $\lnot  \lnot \exists x \forall y \; C(x,y)  \equiv  \exists x \forall y \; C(x,y)\quad\quad$(double negation)
+      \item Someone has climbed every mountain in Pakistan.
+      \end{enumerate}
     \end{solution}
 
   \part[5] Someone in this class is a CND major.
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          Domain & All people \\
+           $C(x)$ & $x$ is in this class.\\
+          $CND(x)$ & $x$ is a CND major.\\
+          Statement & $\exists x\; (C(x) \land CND(x))$
+        \end{tabular}
+      \item $\lnot \exists x\; (C(x) \land CND(x)) \equiv \forall x\; ( \lnot C(x) \lor \lnot CND(x))\quad\quad$(deMorgan's Law)
+      \item Everyone in this class is not a CND major. Alternately, nobody in this class is a CND major.
+      \end{enumerate}
     \end{solution}
 
   \part[5] If everyone does their homework and goes to the recitations, no one will be badly prepared for the exams.
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          Domain & All people \\
+          $H(x)$ & $x$ does their homework.\\
+          $R(x)$ & $x$ goes to the recitations.\\
+          $P(x)$ & $x$ is badly prepared for the exam.\\
+          Statement & $\forall x\; (H(x) \land R(x)) \implies \forall x\; \lnot P(x)$
+        \end{tabular}
+      \item 
+        \begin{align*}
+          \lnot (\forall x\; (H(x) \land R(x)) \implies \forall x\; \lnot P(x))  & \equiv \forall x\; (H(x) \land R(x)) \land \lnot \forall x\; \lnot P(x) & (\text{Equivalence (\ref{eq:negimply})})\\
+                                                                                 & \equiv \forall x\; (H(x) \land R(x)) \land \exists x\; P(x)
+        \end{align*}
+      \item Everyone did their homework and went to the recitations but someone is still badly prepared for the exams.
+      \end{enumerate}
     \end{solution}
 
   \part[5] Every student in this class has major CS.
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          Domain & Students in this class \\
+          $CS(x)$ & $x$ is a CS major.\\
+          Statement & $\forall x\; CS(x)$
+        \end{tabular}
+      \item $\lnot \forall x\; CS(x)  \equiv \exists x\; \lnot CS(x)$
+      \item Some student in this class is not a CS major.
+      \end{enumerate}
     \end{solution}
 
   \part[5] Some students are always inattentive in class. 
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          Domain & All students \\
+          $I(x)$ & $x$ is always inattentive in class.\\
+          Statement & $\exists x\; I(x)$
+        \end{tabular}
+      \item  $\lnot \exists x\; I(x) \equiv \forall x\; \lnot I(x)$
+      \item No student is always inattentive in class.
+      \end{enumerate}
     \end{solution}
 
   \part[5] No student has solved at least one exercise in every section of the book.
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item
+        \begin{tabular}{l@{ : } l}
+          $Solve(st, ex)$ & $st$ has solved $ex$ \\
+          $In(ex, sec)$ & $ex$ is in $sec$ \\
+          Domain for $st$ & all students \\
+          Domain for $ex$ & all exercises \\
+          Domain for $sec$ & all sections of the book \\
+          Statement & $\lnot \exists  st \; \forall sec \; \exists ex\; Solve(st, ex) \land In(ex, sec)$
+        \end{tabular}
+      \item $\lnot \lnot \exists st \; \forall sec \;  \exists ex\; Solve(st, ex) \land In(ex, sec) \equiv \exists st \; \forall sec \; \exists ex\; Solve(st, ex) \land In(ex, sec)$
+      \item Some student has solved at least one exercise in every section of the book.
+      \end{enumerate}
     \end{solution}
 
   \end{parts}
@@ -107,12 +226,12 @@
   \begin{parts}
   \part[5] $\exists p\; (F(p) \land B(p)) \rightarrow \exists j\; L(j)$
     \begin{solution}
-      % Write your solution here
+      If any printer is busy and out of service, then some print job is lost.
     \end{solution}
     
   \part[5] $(\forall p\; B(p) \land \forall j\; Q(j)) \rightarrow \exists j\; L(j)$
     \begin{solution}
-      % Write your solution here
+      If all printers are busy and all jobs are queued, then some print job is lost.
     \end{solution}
   \end{parts}
 
@@ -120,12 +239,26 @@
   \begin{parts}
   \part[5] At least one mail message can be saved if there is a disk with more than 10KB of free space.
     \begin{solution}
-      % Write your solution here
+      \begin{tabular}{l@{ : } l}
+        $Save(m)$ & $m$ can be saved \\
+        Domain for $m$ & all mail messages \\
+        $Free(d, mem)$ & $d$ has more than $mem$ KB free space \\
+        Domain for $d$ & all disks \\
+        Domain for $mem$ & units of storage \\
+        Statement & $\exists d\; Free(d, 10) \implies \exists m\; Save(m)$
+      \end{tabular}
     \end{solution}
 
   \part[5] The system mailbox can be accessed by everyone in the group if the file system is locked.
     \begin{solution}
-      % Write your solution here
+      \begin{tabular}{l@{ : } l}
+        $Access(x,y)$ & $x$ can access $y$. \\
+        Domain for $x$& people in the group \\
+        Domain for $y$ & systems \\
+        $State(y,z)$ & $y$ is in state $z$. \\
+        Domain for $z$ & system states \\
+        Statement & $State(s.file, locked) \; \rightarrow \; \forall x\; Access(x, s.mailbox)$
+      \end{tabular}
     \end{solution}
   \end{parts}
 
@@ -140,22 +273,38 @@
   \begin{parts}
   \part[5] $\forall x \forall y\; (x^2= y^2 \rightarrow x=y)$
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item If the squares of two integers are equal, then the integers must have already been equal.
+      \item This proposition is False. A counterexample is $(x,y) : (1, -1)$. (One counterexample is sufficient to disprove universality.)
+      \item One domain for which the proposition is true is $\mathbb{Z}^{+}$.
+      \end{enumerate}
     \end{solution}
 
   \part[5] $\forall x \exists y\; (y^2=x)$
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item Every integer is the square of some integer.
+      \item This proposition is False. A counterexample is $x = 2$ for which no $y\in \mathbb{Z}$ can be found to satisfy the statement. (One counterexample is sufficient to disprove universality.)
+      \item One domain for which the proposition is true is $\mathbb{R}^{+}$.
+      \end{enumerate}
     \end{solution}
 
   \part[5] $\exists x \forall y\; (x \leq y^2)$
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item There exists an integer which is less than or equal to the square of any other integer.
+      \item This proposition is True. It is possible to find a value, e.g. $x = 0$, that makes the proposition True, as $0 \leq y^2$ for all $y \in \mathbb{Z}$. (One example is sufficient to prove existence.)
+      \item One other domain for which the proposition is true is $\mathbb{R}$. But if we take $\mathbb{R}^{ \setminus \{0\}} = \mathbb{R} - \{0\}$, then such a number does not exist. In particular for every real number $x$, you can then find a number $y$, such that $y^2 < x$.
+      \end{enumerate}
     \end{solution}
 
   \part[5] $\forall x \forall y\ \exists z\; (x-z=y)$
     \begin{solution}
-      % Write your solution here
+      \begin{enumerate}
+      \item The difference of any 2 integers is an integer.
+      \item This proposition is True. The difference of 2 integers is again an integer.
+      \item One domain for which the proposition is False is $\mathbb{Z}^{+}$. A counterexample for that domain is $(x, y) : (5, 7)$. $z$ would have to be -2 which is not in the domain.
+      \end{enumerate}
     \end{solution}
   \end{parts}
   
