@@ -104,7 +104,11 @@
     \end{tabular}
 
     \begin{solution}
-      % Write your solution here
+      P: Pass in the course \\ P(a): Ahmed passed \\ A: attended every lecture \\ A(a): Ahmed attended lectures \\ H: did homework \\ H(s,w): Student did homework every week [s is for students] \\
+     Premise 1: $\neg$ P(a) $\land$  $\forall$w Q(a,w) \\
+     Premise 2: $\forall$s ($\forall$w H(s,w)) $\implies$ P(s)\\
+     Applying simplification on Premise 1: $\neg$ P(a) \\
+     Applying universal instantiation on Premise 2: $\forall$ w H(a,w) $\implies$ P(a)\\ Applying Modus Tollens on the two above processed expressions  $\forall$ w H(a,w) $\implies$ P(a)  and $\neg$ P(a), we get $\neg \forall$ w H(a,w)\\ further applying negation on this gives us $\exists$ w $\neg$ H(a,w) 
     \end{solution}
   \end{parts}
 
