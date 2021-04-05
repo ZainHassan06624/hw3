@@ -91,7 +91,7 @@
       C & We play cricket or volleyball. 
     \end{tabular}
     \begin{solution}
-      % Write your solution here
+      \\ Q is we play cricket \\ V is we play Volleyball \\ R is we play Basketball \\ F is the Field is occupied \\ P is It is Sunday today \\ We need to prove Q  $ \lor$ V \\ P1: P $\implies$ (Q $\lor$ R) \\ Premise P \\ Applying Modus Ponens to these premises gives us Q  $ \lor$ R \\ P2: S $\implies$ $\neg$ R \\ Applying Modus Ponens gives us $\neg$ R \\ Applying Disjunctive Syllogism to Q  $ \lor$ V and $\neg$ R giving us the result Q \\ Applying Addition rule on Q to get  Q  $ \lor$ V
     \end{solution}
     
   \part[10]  $ $\\
@@ -145,9 +145,13 @@
     % Write your solutions here
     \begin{parts}
     \part
+    The relation given is not an equivalence relation as it is not transitive. Assuming (x,y,z) to be (-3,0,1) then yz $\geq 0$, xy $\geq 0$ but not for xz as -3 is less than 0
     \part
+     It is not symmetric and hence does not an equivalence relation
     \part
+    symmetric as Tij=1 and Tji=1 and same for 0 as well.\\ Reflexive as all diagonals have value 1 \\ Transitive as multiplying the matrix by itself gives us:\\ T = $\begin{bmatrix} 2 & 0 & 2 & 0 \\ 0 & 2 & 0 & 2 \\2 & 0 & 2 & 0 \\ 0 & 2 & 0 & 2 \end{bmatrix}$
     \part
+     Reflexive as all diagonals have value 1 \\ symmetric as Tij=1 and Tji=1 and same for 0 as well \\ Transitive as multiplying the matrix by itself gives us:\\  T = $\begin{bmatrix} 3 & 3 & 3 & 0 \\ 3 & 3 & 3 & 0 \\ 3 & 3 & 3 & 0 \\ 0 & 0 & 0 & 3 \end{bmatrix}$
     \part
     \end{parts}    
   \end{solution}
@@ -160,12 +164,17 @@
   \begin{parts}
   \part[5] Show that the relation $R$ on a set $A$ is symmetric if and only if $R = R^{-1}$.
     \begin{solution}
-      % Write your solution here
+      Assuming that R is symmetric\\(a, b) $\in$ R $\implies$ (b,a ) $\in$ R\\
+      By the definition of inverse relation\\
+      (a, b) $\in$ R $\implies$ (b,a ) $\in$ $R^{-1}$\\
+      (a, b) $\in$ $R^{-1}$ $\implies$ (b,a) $\in$ R\\ concluding that R=$R^{-1}$ \\ (a, b) $\in$ R $\implies$  (b,a ) $\in$ $R^{-1}$ $\implies$ (b,a ) $\in$ R\\ R is symmetric
     \end{solution}
 
   \part[5] Show that the relation $R$ on a set $A$ is reflexive if and only if $\overline{R}$ is irreflexive.
     \begin{solution}
-      % Write your solution here
+      R being reflexive means (a,a) $\in$ R\\ (a,a) $\notin$ $\overline{R}$
+      using complimentary relation and hence $\overline{R}$ is irreflexive\\
+      Assuming $\overline{R}$ is irreflexive then (a,a) $\notin$ R and using complimentary relation (a,a) $\in$ R \\ Two cases: 1-R is reflexive since (a,a) $\in$ R 2- R is reflexive iff $\overline{R}$ is irreflexive
     \end{solution}
 
   \part[5] Let $R$ be a relation that is reflexive and transitive. Prove that $R^n = R$ for all positive integers $n$.
@@ -191,7 +200,11 @@
     % Write your solutions here
     \begin{parts}
     \part 
+    Flip the positions of 1's and 0's or Flip the axis of i and j \\
+    Case 1: Mji has 0 and Mij has 1\\ for Case 1 $M_{R^{-1}}$ will be changed to  Mji being 1 and Mij being 0 \\
+    Case 2:  Mji has 1 and Mij has 1 \\ for Case 2 1 will remain on both entries of $M_{R^{-1}}$ 
     \part 
+     Put 0 on the entry where there is 1 in $M_R$ and put 1 at the entry where there is 0 in $M_R$  \\ $M_R$ is the original matrix
     \end{parts}
   \end{solution}
   
@@ -228,7 +241,11 @@
     % Write your solutions here
     \begin{parts}
     \part 
+    The relation is not anti-symmetric and hence it is not a partial order\\ In the diagonal we have Mji = 1 for which we have Mij also equals to 1\\
+    It could have been anti-symmetric if Mji was 1 and Mij was 0
     \part 
+    The relation is not anti-symmetric and hence it is not a partial order\\ In the diagonal we have Mji = 1 for which we have Mij also equals to 1\\
+    It could have been anti-symmetric if Mji was 1 and Mij was 0
     \end{parts}
   \end{solution}
   
